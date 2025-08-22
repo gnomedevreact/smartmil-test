@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "run": "node dist/main.js",
+    "dev": "npx tsc && node dist/main.js",
+    "mig:gen": "npm run typeorm migration:create",
+    "mig:run": "npm run typeorm -- migration:run -d src/data-source.ts",
+    "mig:run:dist": "node --require dotenv/config node_modules/typeorm/cli.js migration:run -d dist/data-source.js",
+    "mig:revert:dist": "node --require dotenv/config node_modules/typeorm/cli.js migration:revert -d dist/data-source.js",
+    "typeorm": "typeorm-ts-node-commonjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "prettier": "^3.6.2",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.26"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
